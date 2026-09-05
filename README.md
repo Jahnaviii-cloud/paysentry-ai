@@ -150,25 +150,7 @@ This is an incident-intelligence MVP, not a claim that synthetic behavior exactl
 
 A production version would learn dynamic baselines per merchant/issuer/payment rail, consume real observability telemetry, persist events, and add model/feature monitoring.
 
-## Production hardening roadmap
 
-- Kafka/PubSub ingestion instead of in-memory simulation
-- Redis/stream processor for rolling features
-- PostgreSQL/ClickHouse for incident and payment aggregates
-- Isolation Forest/change-point model alongside statistical rules
-- supervised root-cause classifier trained on labeled incidents
-- model registry and drift monitoring
-- authenticated APIs and RBAC
-- audit logging and incident acknowledgements
-- OpenTelemetry metrics/traces
-- Kubernetes deployment and autoscaling
-
-## Interview talking points
-
-- Why accuracy alone is not a useful operational metric
-- How baseline choice changes false positives
-- How to separate issuer degradation from payment-rail degradation
-- Why root-cause evidence should be explainable
 - How to avoid leaking sensitive payment data
 - How to scale from a synthetic MVP to millions of events per minute
 
