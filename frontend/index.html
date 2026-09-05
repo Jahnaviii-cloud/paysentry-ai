@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PaySentry AI payment incident intelligence dashboard" />
+  <title>PaySentry AI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">AI PAYMENT OPERATIONS</p>
+        <h1>PaySentry AI</h1>
+        <p class="subtitle">Failure root-cause & incident intelligence platform</p>
+      </div>
+      <div class="status"><span></span> Live simulation</div>
+    </header>
+
+    <div id="error" class="error hidden"></div>
+
+    <section class="controls">
+      <label>Incident scenario
+        <select id="scenario">
+          <option value="issuer_degradation">Issuer degradation</option>
+          <option value="rail_degradation">UPI rail degradation</option>
+          <option value="regional_network">Regional network</option>
+          <option value="merchant_integration">Merchant integration</option>
+          <option value="none">Healthy traffic</option>
+        </select>
+      </label>
+      <button id="runBtn">Run AI analysis</button>
+    </section>
+
+    <section class="metrics">
+      <article><span>Baseline success</span><strong id="baseline">—</strong></article>
+      <article><span>Current success</span><strong id="current">—</strong></article>
+      <article><span>Success-rate drop</span><strong id="drop">—</strong></article>
+      <article><span>Revenue at risk</span><strong id="revenue">—</strong></article>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel incident">
+        <div class="panel-title"><span>Incident intelligence</span><b id="severity" class="sev">—</b></div>
+        <h2 id="headline">Loading payment intelligence…</h2>
+        <p id="explanation"></p>
+        <div class="facts">
+          <div><span>Likely root cause</span><strong id="rootCause">—</strong></div>
+          <div><span>Confidence</span><strong id="confidence">—</strong></div>
+          <div><span>Affected method</span><strong id="method">—</strong></div>
+          <div><span>Affected bank</span><strong id="bank">—</strong></div>
+          <div><span>Affected region</span><strong id="region">—</strong></div>
+          <div><span>Excess failures</span><strong id="impacted">—</strong></div>
+        </div>
+      </div>
+
+      <div class="panel recommendations">
+        <div class="panel-title"><span>Recommended actions</span><b>AI-guided</b></div>
+        <ol id="recommendations"></ol>
+      </div>
+    </section>
+
+    <section class="chart-wrap">
+      <div class="chart-head"><span>Payment success rate</span><span>5-minute buckets</span></div>
+      <svg id="chart" viewBox="0 0 760 180" role="img" aria-label="Payment success rate timeline">
+        <line x1="0" y1="30" x2="760" y2="30" class="grid" />
+        <line x1="0" y1="90" x2="760" y2="90" class="grid" />
+        <line x1="0" y1="150" x2="760" y2="150" class="grid" />
+        <polyline id="trend" points="" class="trend" />
+      </svg>
+    </section>
+
+    <footer>PaySentry AI • Synthetic data demo • No real payment credentials or customer data</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
